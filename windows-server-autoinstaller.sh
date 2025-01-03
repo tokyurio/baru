@@ -2,13 +2,10 @@
 
 # Function to display menu and get user choice
 display_menu() {
-    echo "Please select the Windows Server or Windows version:"
+    echo "Please select the Windows Server version:"
     echo "1. Windows Server 2016"
     echo "2. Windows Server 2019"
-    echo "3. Windows Server 2022"
-    echo "4. Windows 10"
-    echo "5. Windows 11"
-    echo "6. Windows 1021h2"
+    echo "3. Windows 10"
     read -p "Enter your choice: " choice
 }
 
@@ -41,28 +38,10 @@ case $choice in
         iso_file="windows2019.iso"
         ;;
     3)
-        # Windows Server 2022
-        img_file="windows2022.img"
-        iso_link="https://go.microsoft.com/fwlink/p/?LinkID=2195280&clcid=0x409&culture=en-us&country=US"
-        iso_file="windows2022.iso"
-        ;;
-    4)
         # Windows 10
         img_file="windows10.img"
         iso_link="http://138.197.29.186/WIN10.ISO"
         iso_file="windows10.iso"
-        ;;
-    5)
-        # Windows 11
-        img_file="windows11.img"
-        iso_link="http://138.197.29.186/WIN11.ISO"
-        iso_file="windows11.iso"
-        ;;
-    6)
-        # Windows 1021h2
-        img_file="windows1021h2.img"
-        iso_link="http://138.197.29.186/win1021H2.img"
-        iso_file="windows1021h2.iso"
         ;;
     *)
         echo "Invalid choice. Exiting."
@@ -70,10 +49,10 @@ case $choice in
         ;;
 esac
 
-echo "Selected version: $img_file"
+echo "Selected Windows Server version: $img_file"
 
 # Create a raw image file with the chosen name
-qemu-img create -f raw "$img_file" 40G
+qemu-img create -f raw "$img_file" 30G
 
 echo "Image file $img_file created successfully."
 
