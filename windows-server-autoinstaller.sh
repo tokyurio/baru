@@ -5,7 +5,7 @@ display_menu() {
     echo "Please select the Windows Server version:"
     echo "1. Windows Server 2016"
     echo "2. Windows Server 2019"
-    echo "3. Windows 10"
+    echo "3. Windows 7"
     read -p "Enter your choice: " choice
 }
 
@@ -39,9 +39,9 @@ case $choice in
         ;;
     3)
         # Windows 10
-        img_file="windows10.img"
-        iso_link="http://138.197.29.186/WIN10.ISO"
-        iso_file="windows10.iso"
+        img_file="windows7.img"
+        iso_link="https://drive.massgrave.dev/en_windows_7_professional_with_sp1_x86_dvd_u_677056.iso"
+        iso_file="windows7.iso"
         ;;
     *)
         echo "Invalid choice. Exiting."
